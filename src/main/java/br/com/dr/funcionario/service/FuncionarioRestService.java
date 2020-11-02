@@ -1,7 +1,7 @@
 package br.com.dr.funcionario.service;
 
 import br.com.dr.funcionario.dominio.Funcionario;
-import br.com.dr.funcionario.repositorio.FuncionarioDAO;
+import br.com.dr.funcionario.repositorio.FuncionarioRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class FuncionarioRestService {
 
     @Autowired
-    private FuncionarioDAO funcionarioDAO;
+    private FuncionarioRepository funcionarioRepository;
 
     @GetMapping("/all")
     public List<Funcionario> findAll() {
-        return this.funcionarioDAO.findAll();
+        return this.funcionarioRepository.findAll();
     }
 }
