@@ -5,6 +5,7 @@ import br.com.dr.funcionario.dominio.Funcionario;
 import br.com.dr.funcionario.dto.FuncionarioDTO;
 import br.com.dr.funcionario.repositorio.FuncionarioRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,5 +25,13 @@ public class FuncionarioActor {
     public List<FuncionarioDTO> findByNomeContainingIgnoreCase(String nome) {
         return converter.convertFrom(repository.findByNomeContainingIgnoreCase(nome));
 
+    }
+
+    public boolean delete(long id) {
+        if (this.repository.findById(id).isPresent()) {
+            this.repository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

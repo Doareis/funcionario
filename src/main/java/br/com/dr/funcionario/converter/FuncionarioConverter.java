@@ -11,6 +11,7 @@ public class FuncionarioConverter {
 
     public List<FuncionarioDTO> convertFrom(List<Funcionario> entidades) {
         return entidades.stream().map(entidade -> new FuncionarioDTO(
+            entidade.getId(),
             entidade.getNome(),
             entidade.getAniversario(),
             entidade.getDocumento(),

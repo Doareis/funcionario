@@ -12,6 +12,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class FuncionarioDTO implements Serializable {
 
+    private long id;
+
     private String nome;
 
     private LocalDate nascimento;
