@@ -26,6 +26,10 @@ public class FuncionarioActor {
         return converter.convertFrom(repository.findByNomeContainingIgnoreCase(nome));
     }
 
+    public List<FuncionarioDTO> findByDepartamento(String nomeDepartamento) {
+        return converter.convertFrom(repository.findByNomeDepartamento(nomeDepartamento));
+    }
+
     public boolean delete(long id) {
         Optional<Funcionario> optFuncionario = this.repository.findById(id);
         if (optFuncionario.isPresent()) {

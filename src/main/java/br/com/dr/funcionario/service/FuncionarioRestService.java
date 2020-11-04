@@ -25,8 +25,13 @@ public class FuncionarioRestService {
     }
 
     @GetMapping
-    public List<FuncionarioDTO> findBy(@RequestParam String nome) {
+    public List<FuncionarioDTO> findByNome(@RequestParam String nome) {
         return this.actor.findByNomeContainingIgnoreCase(nome);
+    }
+
+    @GetMapping("/departamento/{nomeDepartamento}")
+    public List<FuncionarioDTO> findByDepartamento(@PathVariable("nomeDepartamento") String nomeDepartamento) {
+        return this.actor.findByDepartamento(nomeDepartamento);
     }
 
     @DeleteMapping("delete/{id}")
