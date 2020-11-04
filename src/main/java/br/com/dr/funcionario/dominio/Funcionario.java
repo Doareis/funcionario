@@ -1,11 +1,7 @@
 package br.com.dr.funcionario.dominio;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,9 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Cascade;
 
 @Entity
 @Getter
@@ -37,6 +33,10 @@ public class Funcionario {
 
     @Column
     private String documento;
+
+    @OneToOne
+    @JoinColumn(name = "chefe")
+    private Departamento departamentoChefiado;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cargo")

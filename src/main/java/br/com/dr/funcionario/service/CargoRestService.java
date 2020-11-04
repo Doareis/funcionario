@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/departamentos")
+@RequestMapping("/cargos")
 public class CargoRestService {
 
     @Autowired

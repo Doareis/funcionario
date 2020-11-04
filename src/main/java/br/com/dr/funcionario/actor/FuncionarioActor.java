@@ -29,8 +29,6 @@ public class FuncionarioActor {
     public boolean delete(long id) {
         Optional<Funcionario> optFuncionario = this.repository.findById(id);
         if (optFuncionario.isPresent()) {
-            Funcionario funcionario = optFuncionario.get();
-            funcionario.getDepartamentos().clear();
             this.repository.deleteById(id);
             return true;
         }
