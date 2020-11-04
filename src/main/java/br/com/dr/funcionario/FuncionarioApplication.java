@@ -17,7 +17,7 @@ public class FuncionarioApplication {
     }
 
     @Bean
-    public Docket productApi() {
+    public Docket configSwagger() {
         return new Docket(DocumentationType.SWAGGER_2).select()
             .apis(
                 RequestHandlerSelectors.basePackage(
