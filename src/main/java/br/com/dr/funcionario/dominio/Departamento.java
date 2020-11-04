@@ -1,6 +1,7 @@
 package br.com.dr.funcionario.dominio;
 
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,5 +30,5 @@ public class Departamento {
     private Funcionario chefe;
 
     @ManyToMany(mappedBy = "departamentos", fetch = FetchType.LAZY)
-    private List<Funcionario> funcionarios;
+    private Set<Funcionario> funcionarios;
 }

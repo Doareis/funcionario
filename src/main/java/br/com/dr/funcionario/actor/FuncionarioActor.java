@@ -1,4 +1,4 @@
-package br.com.dr.funcionario.service;
+package br.com.dr.funcionario.actor;
 
 import br.com.dr.funcionario.converter.FuncionarioConverter;
 import br.com.dr.funcionario.dominio.Funcionario;
@@ -24,11 +24,13 @@ public class FuncionarioActor {
 
     public List<FuncionarioDTO> findByNomeContainingIgnoreCase(String nome) {
         return converter.convertFrom(repository.findByNomeContainingIgnoreCase(nome));
-
     }
 
     public boolean delete(long id) {
-        if (this.repository.findById(id).isPresent()) {
+        Optional<Funcionario> optFuncionario = this.repository.findById(id);
+        if (optFuncionario.isPresent()) {
+            Funcionario funcionario = optFuncionario.get();
+            funcionario.getDepartamentos().clear();
             this.repository.deleteById(id);
             return true;
         }

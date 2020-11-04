@@ -43,7 +43,6 @@ public class Funcionario {
     private Cargo cargo;
 
     @ManyToMany
-    @Cascade(value = org.hibernate.annotations.CascadeType.DELETE_ORPHAN)
     @JoinTable(name = "funcionario_departamento",
         joinColumns = {@JoinColumn(name = "funcionario_id")},
         inverseJoinColumns = {@JoinColumn(name = "departamento_id")})
